@@ -15,11 +15,6 @@ const router = createBrowserRouter([
         element: <App />,
         errorElement: <ErrorPage />,
       },
-      // {
-      //   path: "/popularDestination",
-      //   element: <PopularDestinations />,
-      //   errorElement: <ErrorPage />,
-      // },
     ],
   },
 ]);
