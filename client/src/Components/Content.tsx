@@ -1,6 +1,19 @@
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
-const PopularDestinations = () => {
+
+interface Props {
+  page: string;
+}
+const Content = ({ page }: Props) => {
+  const heading =
+    page === "Destination"
+      ? "Explore Most Popular Destinations"
+      : "Top Selling Tour Packages of India";
+
+  const desc =
+    page === "Destination"
+      ? "Plan your perfect trip with our most loved and best-selling tour packages."
+      : "Stay updated with our latest news and happenings through Informe";
   return (
     <Box>
       <Box
@@ -15,14 +28,12 @@ const PopularDestinations = () => {
         <Typography
           sx={{ fontSize: "50px", fontWeight: "bold", color: "#10a2a8 " }}
         >
-          {" "}
-          Explore Most Popular Destinations{" "}
+          {heading}
         </Typography>
 
         <Box sx={{ width: "500px", textAlign: "center" }}>
           <Typography sx={{ fontSize: "20px", fontWeight: 400 }}>
-            Plan your perfect trip with our most loved and best-selling tour
-            packages.
+            {desc}
           </Typography>
         </Box>
       </Box>
@@ -30,4 +41,4 @@ const PopularDestinations = () => {
   );
 };
 
-export default PopularDestinations;
+export default Content;

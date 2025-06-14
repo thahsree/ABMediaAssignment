@@ -9,7 +9,9 @@ interface Props {
   heading: string;
   desc: string;
 }
+
 const IconContainer = ({ heading, desc }: Props) => {
+  //adding icons according to the heading input
   const Icon =
     heading === "Save Time"
       ? CiClock2

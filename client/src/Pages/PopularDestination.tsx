@@ -2,8 +2,8 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
+import Content from "../Components/Content";
 import PlacesCard from "../Components/PlacesCard";
-import PopularDestinations from "../Components/PopularDestinations";
 const PopularDestination = () => {
   return (
     <Container
@@ -17,7 +17,7 @@ const PopularDestination = () => {
         marginBottom: "3rem",
       }}
     >
-      <PopularDestinations />
+      <Content page="Destination" />
       <Box
         sx={{
           marginTop: "5rem",
