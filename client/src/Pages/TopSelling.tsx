@@ -2,8 +2,15 @@ import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
 import Content from "../Components/Content";
 import PlacesCard from "../Components/PlacesCard";
+import useTopSelling from "../hooks/useTopSelling";
 
 const TopSelling = () => {
+  const { data, isLoading } = useTopSelling();
+
+  console.log(data);
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
   return (
     <Container
       maxWidth={false}
@@ -30,7 +37,14 @@ const TopSelling = () => {
           width: "100%",
         }}
       >
-        <PlacesCard cardType="TopSelling" />
+        {data.map((item: any) => (
+          <PlacesCard
+            cardType="TopSelling"
+            heading={item.package}
+            image={item.image}
+            key={item._id}
+          />
+        ))}
       </Box>
     </Container>
   );

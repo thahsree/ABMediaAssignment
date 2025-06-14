@@ -4,7 +4,16 @@ import { Box } from "@mui/system";
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 import Content from "../Components/Content";
 import PlacesCard from "../Components/PlacesCard";
+import useDestination from "../hooks/useDestination";
 const PopularDestination = () => {
+  const { data, isLoading } = useDestination();
+
+  console.log(data);
+
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
+
   return (
     <Container
       maxWidth={false}
@@ -30,7 +39,15 @@ const PopularDestination = () => {
           width: "100%",
         }}
       >
-        <PlacesCard cardType="popularDestination" />
+        {data.map((item: any) => (
+          <PlacesCard
+            cardType="popularDestination"
+            heading={item.destination}
+            image={item.image}
+            startingFrom={item.startingFrom}
+            key={item._id}
+          />
+        ))}
       </Box>
       <Box
         sx={{
