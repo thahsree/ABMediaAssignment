@@ -20,9 +20,9 @@ const PopularDestinations = () => {
         </Typography>
 
         <Box sx={{ width: "500px", textAlign: "center" }}>
-          <Typography>
+          <Typography sx={{ fontSize: "20px", fontWeight: 400 }}>
             Plan your perfect trip with our most loved and best-selling tour
-            packages
+            packages.
           </Typography>
         </Box>
       </Box>
