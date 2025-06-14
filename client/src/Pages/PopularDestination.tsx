@@ -26,14 +26,11 @@ const PopularDestination = () => {
           flexWrap: "wrap",
           gap: "50px",
           justifyContent: "center",
+
+          width: "100%",
         }}
       >
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
+        <PlacesCard cardType="popularDestination" />
       </Box>
       <Box
         sx={{

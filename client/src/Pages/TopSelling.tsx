@@ -26,14 +26,11 @@ const TopSelling = () => {
           flexWrap: "wrap",
           gap: "50px",
           justifyContent: "center",
+
+          width: "100%",
         }}
       >
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
-        <PlacesCard />
+        <PlacesCard cardType="TopSelling" />
       </Box>
     </Container>
   );

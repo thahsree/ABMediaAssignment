@@ -5,6 +5,6 @@ const {
 } = require("../controller/destination");
 
 router.get("/", getDestinations);
-router.put("/", createDestination);
+router.post("/", createDestination);
 
 module.exports = router;

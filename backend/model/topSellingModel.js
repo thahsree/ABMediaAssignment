@@ -7,6 +7,9 @@ const topSellingSchema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+  },
 });
 
 const TopSelling = mongoose.model("TopSelling", topSellingSchema);

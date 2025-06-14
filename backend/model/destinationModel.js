@@ -11,6 +11,9 @@ const destinationSchema = new Schema({
     type: Number,
     required: true,
   },
+  image: {
+    type: String,
+  },
 });
 
 const Destination = mongoose.model("Destination", destinationSchema);

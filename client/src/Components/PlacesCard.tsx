@@ -1,9 +1,18 @@
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-const PlacesCard = () => {
+
+interface Props {
+  image?: String;
+  heading?: String;
+  startingFrom?: string;
+  cardType: String;
+}
+
+const PlacesCard = ({ cardType }: Props) => {
   return (
     <Card
       sx={{
@@ -20,10 +29,6 @@ const PlacesCard = () => {
     >
       <CardActionArea
         sx={{
-          transition: "transform 0.3s ease",
-          "&:hover": {
-            transform: "scale(1.02)",
-          },
           backgroundColor: "whitesmoke",
           borderRadius: "20px",
         }}
@@ -38,6 +43,7 @@ const PlacesCard = () => {
         <CardContent
           sx={{
             display: "flex",
+            flexDirection: cardType === "TopSelling" ? "column" : "",
             justifyContent: "space-between",
             alignItems: "center",
           }}
@@ -50,12 +56,31 @@ const PlacesCard = () => {
           >
             Kashmir
           </Typography>
-          <Typography
-            variant="body2"
-            sx={{ color: "text.secondary", fontWeight: 600 }}
-          >
-            Starting from <span className="price">4999</span>
-          </Typography>
+          {cardType === "popularDestination" && (
+            <Typography
+              variant="body2"
+              sx={{ color: "text.secondary", fontWeight: 600 }}
+            >
+              Starting from <span className="price">4999</span>
+            </Typography>
+          )}
+
+          {cardType === "TopSelling" && (
+            <Button
+              sx={{
+                borderRadius: "999px",
+                backgroundColor: "#60b9b7",
+                paddingX: "20px",
+                paddingY: "10px",
+                color: "#FFFFFF",
+                width: "100%",
+                fontSize: "15px",
+                fontWeight: "bold",
+              }}
+            >
+              View Details
+            </Button>
+          )}
         </CardContent>
       </CardActionArea>
     </Card>
