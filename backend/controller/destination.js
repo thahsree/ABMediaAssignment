@@ -1,39 +1,28 @@
+const { default: AsyncHandler } = require("../middlewares/AsyncHandler");
 const Destination = require("../model/destinationModel");
 
-const getDestinations = async (req, res) => {
-  try {
-    const foundedDestinations = await Destination.find({});
+const getDestinations = AsyncHandler(async (req, res) => {
+  const foundedDestinations = await Destination.find({});
 
-    if (foundedDestinations.length <= 0) {
-      return res.status(200).json({ message: "NO ITEMS TO SHOW " });
-    }
-
-    return res.status(200).json(foundedDestinations);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "internal server error" });
+  if (foundedDestinations.length <= 0) {
+    return res.status(200).json({ message: "NO ITEMS TO SHOW " });
   }
-};
 
-const createDestination = async (req, res) => {
-  try {
-    const { destination, startingFrom } = req.body;
+  return res.status(200).json(foundedDestinations);
+});
 
-    if (!destination || !startingFrom) {
-      return res
-        .status(400)
-        .json({ message: "please add destination and starting from inputs" });
-    }
+const createDestination = AsyncHandler(async (req, res) => {
+  const { destination, startingFrom } = req.body;
 
-    const newDestination = await Destination.create(req.body);
-
+  if (!destination || !startingFrom) {
     return res
-      .status(200)
-      .json({ message: "Destination Added", newDestination });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ messsage: "internal server error" });
+      .status(400)
+      .json({ message: "please add destination and starting from inputs" });
   }
-};
+
+  const newDestination = await Destination.create(req.body);
+
+  return res.status(200).json({ message: "Destination Added", newDestination });
+});
 
 module.exports = { getDestinations, createDestination };
