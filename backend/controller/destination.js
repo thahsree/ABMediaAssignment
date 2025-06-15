@@ -5,7 +5,7 @@ const getDestinations = AsyncHandler(async (req, res) => {
   const foundedDestinations = await Destination.find({});
 
   if (foundedDestinations.length <= 0) {
-    return res.status(200).json({ message: "NO ITEMS TO SHOW " });
+    return res.status(404).json({ message: "NO ITEMS TO SHOW " });
   }
 
   return res.status(200).json(foundedDestinations);
